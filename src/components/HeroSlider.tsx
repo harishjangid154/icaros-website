@@ -3,6 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import headerImage1 from '@/assets/hero/header1.png';
+import headerImage2 from '@/assets/hero/header2.png';
+import headerImage3 from '@/assets/hero/header3.png';
+import headerImage4 from '@/assets/hero/header4.png';
+import icaraceImage from '@/assets/hero/icarace.png';
 
 const slides = [
   {
@@ -12,7 +17,7 @@ const slides = [
     description: 'Transform therapy with engaging VR experiences',
     cta: 'Learn More',
     ctaLink: '/products/icaros-health',
-    image: '/images/hero/header1.png',
+    image: headerImage1,
   },
   {
     id: 2,
@@ -21,7 +26,7 @@ const slides = [
     description: 'Advanced fall prevention and balance training',
     cta: 'Discover More',
     ctaLink: '/products/icaros-guardian',
-    image: '/images/hero/header2.png',
+    image: headerImage2,
   },
   {
     id: 3,
@@ -30,7 +35,7 @@ const slides = [
     description: 'Full-body workout meets immersive VR',
     cta: 'Explore Now',
     ctaLink: '/products/icaros-circle',
-    image: '/images/hero/header3.png',
+    image: headerImage3,
   },
   {
     id: 4,
@@ -39,7 +44,7 @@ const slides = [
     description: 'Professional VR training for home and studio',
     cta: 'Order Now',
     ctaLink: 'https://shop.icaros.com',
-    image: '/images/hero/header4.png',
+    image: headerImage4,
   },
   {
     id: 6,
@@ -48,7 +53,7 @@ const slides = [
     description: 'Become part of the fastest VR community on the planet',
     cta: 'Join Now',
     ctaLink: 'https://live.icarace.com/',
-    image: '/images/hero/icarace.png',
+    image: icaraceImage,
   },
 ];
 

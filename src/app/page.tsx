@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import HeroSlider from '@/components/HeroSlider';
 import Image from 'next/image';
+import icarosHealthImage from '@/assets/products/icaros-health.jpg';
+import icarosGuardianImage from '@/assets/products/icaros-guardian.jpg';
+import icarosCircleImage from '@/assets/products/icaros-circle.jpg';
+import icarosLightningImage from '@/assets/products/icaros-lightning.jpg';
+import icarosCloudImage from '@/assets/products/icaros-cloud.png';
+import icaraceImage from '@/assets/products/icarace.png';
+import chosenByImage from '@/assets/products/chosen-by-best.jpg';
 
 const products = [
   {
@@ -8,42 +15,42 @@ const products = [
     subtitle: 'Rehabilitation beyond boundaries',
     href: '/products/icaros-health',
     bgColor: 'bg-gradient-to-br from-blue-500 to-blue-700',
-    image: '/images/products/icaros-health.jpg',
+    image: icarosHealthImage,
   },
   {
     title: 'ICAROS Guardian',
     subtitle: 'Stability training made easy',
     href: '/products/icaros-guardian',
     bgColor: 'bg-gradient-to-br from-purple-500 to-purple-700',
-    image: '/images/products/icaros-guardian.jpg',
+    image: icarosGuardianImage,
   },
   {
     title: 'ICAROSCIRCLE',
     subtitle: 'The holistic exercise experience',
     href: '/products/icaros-circle',
     bgColor: 'bg-gradient-to-br from-green-500 to-green-700',
-    image: '/images/products/icaros-circle.jpg',
+    image: icarosCircleImage,
   },
   {
     title: 'ICAROS Lightning',
     subtitle: 'Step into a new dimension of fitness',
     href: '/products/icaros-lightning',
     bgColor: 'bg-gradient-to-br from-yellow-500 to-orange-600',
-    image: '/images/products/icaros-lightning.jpg',
+    image: icarosLightningImage,
   },
   {
-    title: 'ICAROSCloud',
+    title: 'ICAROS Cloud',
     subtitle: 'Find your balance, enhance your endurance, increase your strength',
     href: '/products/icaros-cloud',
     bgColor: 'bg-gradient-to-br from-cyan-500 to-blue-600',
-    image: '/images/products/icaros-cloud.png',
+    image: icarosCloudImage,
   },
   {
     title: 'Online VR Multiplayer',
     subtitle: 'Become a part of ICARACE, the fastest VR community of the planet',
     href: 'https://live.icarace.com/',
     bgColor: 'bg-gradient-to-br from-red-500 to-pink-600',
-    image: '/images/products/icarace.png',
+    image: icaraceImage,
     external: true,
   },
 ];
@@ -188,7 +195,7 @@ export default function Home() {
             </p>
             <div className="relative w-full mx-auto h-[400px]">
               <Image
-                src="/images/products/chosen-by-best.jpg"
+                src={chosenByImage}
                 alt="ICAROS Health References - Chosen by the Best"
                 fill
                 className="object-cover"
