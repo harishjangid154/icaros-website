@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
 const products = {
   'icaros-health': {
@@ -15,6 +16,7 @@ const products = {
       'Patient Engagement Tools',
     ],
     bgColor: 'from-blue-500 to-blue-700',
+    image: '/images/products/icaros-health.jpg',
   },
   'icaros-guardian': {
     title: 'ICAROS Guardian',
@@ -29,6 +31,7 @@ const products = {
       'Real-time Feedback',
     ],
     bgColor: 'from-purple-500 to-purple-700',
+    image: '/images/products/icaros-guardian.jpg',
   },
   'icaros-circle': {
     title: 'ICAROS Circle',
@@ -43,6 +46,7 @@ const products = {
       'Group Training Options',
     ],
     bgColor: 'from-green-500 to-green-700',
+    image: '/images/products/icaros-circle.jpg',
   },
   'icaros-lightning': {
     title: 'ICAROS Lightning',
@@ -57,6 +61,7 @@ const products = {
       'Personal Training Programs',
     ],
     bgColor: 'from-yellow-500 to-orange-600',
+    image: '/images/products/icaros-lightning.jpg',
   },
   'icaros-cloud': {
     title: 'ICAROS Cloud',
@@ -71,6 +76,7 @@ const products = {
       'Extensive Exercise Library',
     ],
     bgColor: 'from-cyan-500 to-blue-600',
+    image: '/images/products/icaros-cloud.png',
   },
   'icaros-cloud-360': {
     title: 'ICAROS Cloud 360',
@@ -85,6 +91,7 @@ const products = {
       'Competitive Leaderboards',
     ],
     bgColor: 'from-indigo-500 to-purple-600',
+    image: '/images/products/icaros-cloud-360.jpg',
   },
 };
 
@@ -106,9 +113,22 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className={`relative py-32 bg-gradient-to-br ${product.bgColor} text-white`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl">
+      <section className="relative py-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className={`absolute inset-0 bg-gradient-to-br ${product.bgColor} opacity-85`} />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="max-w-4xl text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">{product.title}</h1>
             <p className="text-2xl mb-8 opacity-90">{product.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4">

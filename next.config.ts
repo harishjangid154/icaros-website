@@ -20,7 +20,9 @@ const nextConfig: NextConfig = {
         hostname: 'i.ytimg.com',
       },
     ],
+    unoptimized: true,
   },
+  "output": "export"
 };
 
 export default nextConfig;

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import HeroSlider from '@/components/HeroSlider';
+import Image from 'next/image';
 
 const products = [
   {
@@ -6,36 +8,42 @@ const products = [
     subtitle: 'Rehabilitation beyond boundaries',
     href: '/products/icaros-health',
     bgColor: 'bg-gradient-to-br from-blue-500 to-blue-700',
+    image: '/images/products/icaros-health.jpg',
   },
   {
     title: 'ICAROS Guardian',
     subtitle: 'Stability training made easy',
     href: '/products/icaros-guardian',
     bgColor: 'bg-gradient-to-br from-purple-500 to-purple-700',
+    image: '/images/products/icaros-guardian.jpg',
   },
   {
     title: 'ICAROSCIRCLE',
     subtitle: 'The holistic exercise experience',
     href: '/products/icaros-circle',
     bgColor: 'bg-gradient-to-br from-green-500 to-green-700',
+    image: '/images/products/icaros-circle.jpg',
   },
   {
     title: 'ICAROS Lightning',
     subtitle: 'Step into a new dimension of fitness',
     href: '/products/icaros-lightning',
     bgColor: 'bg-gradient-to-br from-yellow-500 to-orange-600',
+    image: '/images/products/icaros-lightning.jpg',
   },
   {
     title: 'ICAROSCloud',
     subtitle: 'Find your balance, enhance your endurance, increase your strength',
     href: '/products/icaros-cloud',
     bgColor: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+    image: '/images/products/icaros-cloud.png',
   },
   {
     title: 'Online VR Multiplayer',
     subtitle: 'Become a part of ICARACE, the fastest VR community of the planet',
     href: 'https://live.icarace.com/',
     bgColor: 'bg-gradient-to-br from-red-500 to-pink-600',
+    image: '/images/products/icarace.png',
     external: true,
   },
 ];
@@ -77,25 +85,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Carousel Section */}
-      <section className="relative h-[600px] bg-gray-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
-        <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-2xl text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Virtual Reality Training for Rehabilitation and Therapy
-            </h1>
-            <p className="text-xl mb-8">
-              Experience the fusion of movement, motivation, and joy
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-colors font-semibold text-lg"
-            >
-              Request Demo
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Products Grid */}
       <section className="py-20 bg-white">
@@ -107,17 +97,29 @@ export default function Home() {
                 href={product.href}
                 target={product.external ? '_blank' : undefined}
                 rel={product.external ? 'noopener noreferrer' : undefined}
-                className={`${product.bgColor} rounded-2xl p-8 text-white hover:scale-105 transition-transform duration-300 min-h-[300px] flex flex-col justify-between`}
+                className="group relative rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 min-h-[400px] flex flex-col justify-end shadow-xl"
               >
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">{product.title}</h2>
-                  <p className="text-lg opacity-90">{product.subtitle}</p>
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className={`absolute inset-0 ${product.bgColor} opacity-80 group-hover:opacity-70 transition-opacity`} />
                 </div>
-                <div className="flex items-center text-sm font-semibold">
-                  {product.external ? 'Read more' : 'Learn More'}
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                
+                {/* Content */}
+                <div className="relative z-10 p-8 text-white">
+                  <h2 className="text-3xl font-bold mb-4">{product.title}</h2>
+                  <p className="text-lg opacity-90 mb-4">{product.subtitle}</p>
+                  <div className="flex items-center text-sm font-semibold">
+                    {product.external ? 'Read more' : 'Learn More'}
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -180,10 +182,18 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Chosen by the Best</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
               Leading therapy, fitness, and wellness facilities worldwide trust ICAROS – for motivation, progress, and
               exceptional experiences
             </p>
+            <div className="relative w-full mx-auto h-[400px]">
+              <Image
+                src="/images/products/chosen-by-best.jpg"
+                alt="ICAROS Health References - Chosen by the Best"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
